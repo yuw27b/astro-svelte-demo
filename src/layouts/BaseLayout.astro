@@ -14,6 +14,8 @@ const { frontmatter } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="noindex" />
+    <!-- 架空のサイトのため -->
     <title>{`${title || frontmatter.title} | Astro+Svelte demo-site`}</title>
   </head>
   <body>

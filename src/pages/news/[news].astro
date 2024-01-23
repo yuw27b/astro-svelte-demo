@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  news: CollectionEntry<"news">;
+}
+
+export async function getStaticPaths() {
+  const news = await getCollection("news");
+  return news.map((item) => ({
+    params: { news: item.slug },
+    props: { news: item },
+  }));
+}
+
+const { news } = Astro.props;
+const { Content } = await news.render();
+---
+
+<BaseLayout title={news.data.title}>
+  <h1>{news.data.title}</h1>
+  <p>{news.data.date.toLocaleDateString()}</p>
+  <Content />
+  <hr />
+  <div>
+    <a href="/news/">お知らせ一覧に戻る</a>
+  </div>
+</BaseLayout>
