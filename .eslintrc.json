@@ -3,6 +3,10 @@
     "plugin:astro/recommended",
     "plugin:svelte/recommended"
   ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
   "overrides": [
     {
       "files": ["*.astro"],
