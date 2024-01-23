@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  color: #222;
+}
+
+a {
+  color: #222;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}

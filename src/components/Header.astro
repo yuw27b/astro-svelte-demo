@@ -1,0 +1,57 @@
+---
+const navItems = [
+  { name: "会社概要", url: "/about/" },
+  { name: "製品紹介", url: "/service/" },
+  { name: "採用情報", url: "/career/" },
+  { name: "アクセス", url: "/access/" },
+  { name: "お知らせ", url: "/news/" },
+];
+---
+
+<header>
+  <div class="headerLogo">
+    <a href="/" class="headerLogo_text">CodeGrid社の架空のサイト</a>
+  </div>
+  <ul class="headerNav">
+    {
+      navItems.map((item) => (
+        <li>
+          <a
+            href={item.url}
+            class={Astro.url.pathname.startsWith(item.url) ? "current" : ""}
+          >
+            {item.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</header>
+
+<style>
+  header {
+    margin: 0 auto 80px;
+    padding: 40px 0;
+    max-width: 960px;
+    border-bottom: solid 5px #ccc;
+  }
+
+  .headerLogo_text {
+    font-family: serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .headerNav {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin-block-start: 35px;
+    padding: 0;
+  }
+
+  .headerNav a.current {
+    text-decoration-style: double;
+  }
+</style>
